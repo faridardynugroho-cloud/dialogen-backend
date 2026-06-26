@@ -17,3 +17,4 @@ Route::post('/rooms/{code}/rejoin', [RoomController::class, 'rejoin']);
 Route::post('/rooms/{code}/offline', [RoomController::class, 'setOffline']);
 Route::post('/rooms/{code}/finish', [RoomController::class, 'finish']);
 Route::post('/rooms/{code}/reset', [RoomController::class, 'reset']);
+Route::get('/rooms/{code}/check-username', [RoomController::class, 'checkUsername']);

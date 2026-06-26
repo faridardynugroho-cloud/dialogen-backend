@@ -92,7 +92,6 @@ class RoomController extends Controller
         if ($existingPlayer) {
             $existingPlayer->update([
                 'username'  => $request->username,
-                'is_online' => true,
             ]);
 
             $allPlayers = $this->formatPlayers($room->fresh()->players);
@@ -121,6 +120,7 @@ class RoomController extends Controller
             'is_host'        => false,
             'color_avatar' => $this->pickAvatarColor($room),
             'lobby_position' => $position,
+            'is_online'      => false,
         ]);
 
         $allPlayers = $this->formatPlayers($room->fresh()->players);
@@ -393,12 +393,7 @@ class RoomController extends Controller
 
         $allPlayers = $this->formatPlayers($room->players);
 
-        event(new PlayerOffline(
-            room: $room,
-            username: $player->username,
-            allPlayers: $allPlayers,
-            newHostId: null,
-        ));
+        event(new PlayerJoined($room, $player, $allPlayers));
 
         return response()->json([
             'message' => 'OK',
@@ -451,6 +446,25 @@ class RoomController extends Controller
         return response()->json([
             'success' => true,
         ]);
+    }
+
+    public function checkUsername(Request $request, string $code)
+    {
+        $request->validate([
+            'username' => 'required|string|max:50',
+        ]);
+
+        $room = Room::where('code', strtoupper($code))->first();
+
+        if (!$room) {
+            return response()->json(['available' => false, 'message' => 'Room tidak ditemukan'], 404);
+        }
+
+        $taken = $room->players()
+            ->where('username', $request->username)
+            ->exists();
+
+        return response()->json(['available' => !$taken]);
     }
     // Tambah helper method ini di RoomController
     private function pickAvatarColor(Room $room): string
