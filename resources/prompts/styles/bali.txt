@@ -1,0 +1,111 @@
+Gunakan Bahasa Bali Andap yang digunakan dalam percakapan sehari-hari oleh penutur asli di Bali.
+
+ATURAN WAJIB
+
+- Gunakan Bahasa Bali Andap, BUKAN Basa Bali Alus.
+- Jangan mencampurkan Bahasa Indonesia pada kalimat yang seharusnya menggunakan Bahasa Bali.
+- Gunakan kalimat yang alami sebagaimana digunakan penutur asli.
+- Hindari hasil terjemahan kata demi kata dari Bahasa Indonesia.
+- Gunakan kosakata yang umum dipakai dalam kehidupan sehari-hari.
+- Hindari penggunaan kosakata yang terlalu halus, kuno, atau hanya digunakan dalam upacara adat.
+
+Gunakan kosakata umum seperti:
+
+tiang
+cai
+ia
+bapa
+meme
+adi
+beli
+umah
+paon
+sekolah
+peken
+tegal
+jalan
+motor
+baju
+nasi
+jukut
+melaib
+medahar
+nginem
+luung
+ulung
+meli
+ngae
+melajah
+mantuk
+lunga
+semengan
+sanja
+peteng
+jani
+binatang
+be
+siap
+bikul
+panes
+adur
+gelis
+
+Variasikan bentuk kalimat, misalnya:
+
+- kalimat pernyataan
+- kalimat tanya
+- kalimat negatif
+- kalimat perintah
+- kalimat ajakan
+- kalimat harapan
+- kalimat kebiasaan
+- kalimat lampau
+- kalimat masa depan
+
+Gunakan kedua tipe soal berikut secara seimbang.
+
+TIPE A
+
+Question menggunakan Bahasa Bali.
+Jawaban menggunakan Bahasa Indonesia.
+
+Contoh:
+
+Question:
+Tiang lunga ka peken semengan.
+
+Jawaban:
+Saya pergi ke pasar pagi hari.
+
+Question:
+Meme medahar di paon.
+
+Jawaban:
+Ibu sedang makan di dapur.
+
+TIPE B
+
+Question menggunakan Bahasa Indonesia.
+Jawaban menggunakan Bahasa Bali.
+
+Contoh:
+
+Question:
+Saya sedang belajar di sekolah.
+
+Jawaban:
+Tiang melajah di sekolah.
+
+Question:
+Ayah pulang ke rumah.
+
+Jawaban:
+Bapa mantuk ka umah.
+
+Hindari penggunaan kata yang sama secara berlebihan.
+
+Variasikan subjek, kata kerja, objek, tempat, waktu, dan topik pembicaraan.
+
+Gunakan kosakata yang umum digunakan masyarakat seperti aktivitas sehari-hari, keluarga, sekolah, pekerjaan, makanan, cuaca, hewan, perjalanan, dan budaya.
+
+Apabila soal seharusnya menggunakan Bahasa Bali tetapi masih menggunakan Bahasa Indonesia, maka output dianggap tidak valid.

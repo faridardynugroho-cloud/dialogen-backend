@@ -12,11 +12,18 @@ use App\Events\ChatMessageSent;
 use App\Events\GameStarted;
 use App\Events\ScoreUpdated;
 use App\Events\PlayerOffline;
+use App\Services\RoomQuestionService;
+use App\Jobs\GenerateRoomQuestionsJob;
+use Illuminate\Support\Facades\Log;
+
 
 class RoomController extends Controller
 {
+    public function __construct(
+        protected RoomQuestionService $roomQuestionService
+    ) {}
+
     // ── POST /api/rooms
-    // Flutter CreateRoom screen memanggil ini
     public function create(Request $request)
     {
         $request->validate([
@@ -52,11 +59,18 @@ class RoomController extends Controller
         $allPlayers = $this->formatPlayers($room->fresh()->load('players')->players);
         event(new PlayerJoined($room, $player, $allPlayers));
 
+        Log::info('Sebelum dispatch');
+
+        GenerateRoomQuestionsJob::dispatch($room)->onQueue('ai-generation');
+
+        Log::info('Sesudah dispatch');
+
         return response()->json([
             'message'   => 'Room created',
             'room_code' => $room->code,
             'player_id' => $player->id,
             'is_host'   => true,
+            'questions_ready'  => false,
         ], 201);
     }
 
@@ -135,7 +149,6 @@ class RoomController extends Controller
     }
 
     // ── GET /api/rooms/{code}
-    // Flutter Lobby screen memanggil ini saat pertama load
     public function show(string $code)
     {
         $room = Room::with('players')
@@ -146,13 +159,32 @@ class RoomController extends Controller
             return response()->json(['message' => 'Room tidak ditemukan'], 404);
         }
 
+        // Include questions untuk reconnect — soal hanya dikirim kalau sudah ready
+        $questions = [];
+        if ($room->questions_ready) {
+            $questions = $room->questions()
+                ->with('question')
+                ->get()
+                ->sortBy('question_order')
+                ->values()
+                ->map(fn($rq) => [
+                    'order'          => $rq->question_order,
+                    'question'       => $rq->question->question,
+                    'options'        => $rq->question->options,
+                    'correct_option' => $rq->question->correct_option,
+                ])
+                ->toArray();
+        }
+
         return response()->json([
-            'room_code'   => $room->code,
-            'status'      => $room->status,
-            'max_players' => $room->max_players,
-            'category'    => $room->category,
-            'time_limit'  => $room->time_limit,
-            'players'     => $this->formatPlayers($room->players),
+            'room_code'       => $room->code,
+            'status'          => $room->status,
+            'max_players'     => $room->max_players,
+            'category'        => $room->category,
+            'time_limit'      => $room->time_limit,
+            'questions_ready' => (bool) $room->questions_ready,
+            'questions'       => $questions,
+            'players'         => $this->formatPlayers($room->players),
         ]);
     }
 
@@ -171,12 +203,31 @@ class RoomController extends Controller
             return response()->json(['message' => 'Room tidak ditemukan'], 404);
         }
 
+        $categoryChanged = $request->has('category')
+            && $request->category !== $room->category;
+
         $room->update($request->only(['category', 'time_limit', 'max_players']));
 
-        event(new SettingsUpdated($room->fresh()));
+        if ($categoryChanged) {
+            // Reset soal lama, generate baru
+            $this->roomQuestionService->deleteRoomQuestions($room);
+            $room->update(['questions_ready' => false]);
+
+            // Fase 1: broadcast dulu tanpa soal — client tahu setting berubah
+            // dan soal sedang disiapkan
+            broadcast(new SettingsUpdated($room->fresh(), []));
+
+            // Fase 2: generate soal baru → job akan broadcast SettingsUpdated
+            // lagi dengan soal setelah selesai
+            GenerateRoomQuestionsJob::dispatch($room->fresh())->onQueue('ai-generation');
+        } else {
+            // Hanya time_limit / max_players yang berubah — broadcast langsung
+            broadcast(new SettingsUpdated($room->fresh(), []));
+        }
 
         return response()->json(['message' => 'Settings updated']);
     }
+
 
     // ── POST /api/rooms/{code}/chat
     public function chat(Request $request, string $code)
@@ -265,7 +316,44 @@ class RoomController extends Controller
 
         $room->update(['status' => 'finished']);
 
+        // Baru di sini usage_count dinaikkan — game benar-benar selesai
+        $this->roomQuestionService->finalizeRoomQuestions($room);
+
         return response()->json(['message' => 'Game finished']);
+    }
+
+    // ── GET /api/rooms/{code}/questions
+    public function questions(string $code)
+    {
+        $room = Room::where('code', strtoupper($code))->first();
+
+        if (!$room) {
+            return response()->json(['message' => 'Room tidak ditemukan'], 404);
+        }
+
+        $questions = $this->roomQuestionService->getRoomQuestions($room);
+
+        if ($questions->isEmpty()) {
+            return response()->json(['message' => 'Soal belum tersedia'], 404);
+        }
+
+        // Format yang dikirim ke Flutter — semua player baca soal yang sama
+        $formatted = $questions
+            ->sortBy('question_order')
+            ->values()
+            ->map(fn($rq) => [
+                'order'          => $rq->question_order,
+                'question_id'    => $rq->question->id,
+                'question'       => $rq->question->question,
+                'options'        => $rq->question->options,
+                'correct_option' => $rq->question->correct_option,
+            ]);
+
+        return response()->json([
+            'room_code' => $room->code,
+            'questions' => $formatted,
+            'total'     => $formatted->count(),
+        ]);
     }
 
     // ── POST /api/rooms/{code}/reset
@@ -277,7 +365,6 @@ class RoomController extends Controller
             return response()->json(['message' => 'Room tidak ditemukan'], 404);
         }
 
-        // Skip jika sudah waiting (player lain sudah reset duluan)
         if ($room->status === 'waiting') {
             return response()->json(['message' => 'Room sudah di-reset', 'skipped' => true]);
         }
@@ -285,8 +372,14 @@ class RoomController extends Controller
         $room->update(['status' => 'waiting']);
         $room->players()->update(['score' => 0]);
 
+        // Hapus soal lama supaya saat start berikutnya dapat soal baru
+        $this->roomQuestionService->deleteRoomQuestions($room);
+
+        GenerateRoomQuestionsJob::dispatch($room)->onQueue('default');
+
         return response()->json(['message' => 'Room reset', 'skipped' => false]);
     }
+
     // Helper: format players untuk response
     private function formatPlayers($players): array
     {
@@ -313,20 +406,30 @@ class RoomController extends Controller
             return response()->json(['message' => 'Minimal 2 player'], 400);
         }
 
-        // reset skor disini
-        $room->players()->update([
-            'score' => 0,
-        ]);
+        if (!$room->questions_ready) {
+            return response()->json(['message' => 'Soal belum siap'], 400);
+        }
 
-        $room->update([
-            'status' => 'playing'
-        ]);
+        $room->players()->update(['score' => 0]);
+        $room->update(['status' => 'playing']);
 
-        event(new GameStarted($room));
+        // Format soal untuk dikirim di GameStarted
+        $questions = $room->questions()
+            ->with('question')
+            ->get()
+            ->sortBy('question_order')
+            ->values()
+            ->map(fn($rq) => [
+                'order'          => $rq->question_order,
+                'question'       => $rq->question->question,
+                'options'        => $rq->question->options,
+                'correct_option' => $rq->question->correct_option,
+            ])
+            ->toArray();
 
-        return response()->json([
-            'message' => 'Game started'
-        ]);
+        event(new GameStarted($room, $questions));
+
+        return response()->json(['message' => 'Game started']);
     }
 
     public function submitScore(Request $request, string $code)
@@ -445,6 +548,7 @@ class RoomController extends Controller
 
         return response()->json([
             'success' => true,
+            'new_host_id' => null,
         ]);
     }
 
@@ -465,6 +569,28 @@ class RoomController extends Controller
             ->exists();
 
         return response()->json(['available' => !$taken]);
+    }
+
+    public function nextQuestion(Request $request, string $code)
+    {
+        $request->validate(['question_index' => 'required|integer']);
+
+        $room = Room::where('code', $code)->firstOrFail();
+
+        $serverTime = now()->timestamp * 1000;
+
+        broadcast(new \App\Events\QuestionStarted([
+            'room_code'      => $code,
+            'question_index' => $request->question_index,
+            'server_time'    => $serverTime,
+            'time_limit'     => $room->time_limit,
+        ]));
+
+        // ✅ Return server_time supaya host pakai waktu yang sama persis
+        return response()->json([
+            'ok'          => true,
+            'server_time' => $serverTime,
+        ]);
     }
     // Tambah helper method ini di RoomController
     private function pickAvatarColor(Room $room): string

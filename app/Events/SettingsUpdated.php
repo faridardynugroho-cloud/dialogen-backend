@@ -3,6 +3,7 @@
 namespace App\Events;
 
 use App\Models\Room;
+use App\Services\RoomQuestionService;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
@@ -13,7 +14,10 @@ class SettingsUpdated implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public function __construct(public Room $room) {}
+    public function __construct(
+        public Room $room,
+        public array $questions = [],
+    ) {}
 
     public function broadcastOn(): array
     {
@@ -28,9 +32,11 @@ class SettingsUpdated implements ShouldBroadcast
     public function broadcastWith(): array
     {
         return [
-            'category'    => $this->room->category,
-            'time_limit'  => $this->room->time_limit,
-            'max_players' => $this->room->max_players,
+            'category'        => $this->room->category,
+            'time_limit'      => $this->room->time_limit,
+            'max_players'     => $this->room->max_players,
+            'questions_ready' => $this->room->questions_ready,
+            'questions'       => $this->questions,
         ];
     }
 }

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('category')->default('Bahasa Jawa');
             $table->string('time_limit')->default('2');
             $table->integer('max_players')->default(4);
+            $table->boolean('questions_ready')->default(false);
             $table->timestamps();
         });
     }

@@ -8,7 +8,10 @@ use App\Models\Room;
 
 class GameStarted implements ShouldBroadcastNow
 {
-    public function __construct(public Room $room) {}
+    public function __construct(
+        public Room $room,
+        public array $questions = [],
+    ) {}
 
     public function broadcastOn(): Channel
     {
@@ -23,9 +26,10 @@ class GameStarted implements ShouldBroadcastNow
     public function broadcastWith(): array
     {
         return [
-            'room_code' => $this->room->code,
-            'category'  => $this->room->category,
-            'time_limit'=> $this->room->time_limit,
+            'room_code'  => $this->room->code,
+            'category'   => $this->room->category,
+            'time_limit' => $this->room->time_limit,
+            'questions'  => $this->questions,
         ];
     }
 }

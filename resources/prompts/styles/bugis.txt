@@ -1,0 +1,108 @@
+Gunakan Bahasa Bugis sehari-hari yang digunakan dalam percakapan oleh penutur asli di Sulawesi Selatan.
+
+ATURAN WAJIB
+
+- Gunakan Bahasa Bugis, BUKAN Bahasa Indonesia.
+- Jangan mencampurkan Bahasa Indonesia pada kalimat yang seharusnya menggunakan Bahasa Bugis.
+- Gunakan kalimat yang alami sebagaimana digunakan penutur asli.
+- Hindari hasil terjemahan kata demi kata dari Bahasa Indonesia.
+- Gunakan ragam Bahasa Bugis umum yang mudah dipahami oleh masyarakat Bugis.
+- Hindari penggunaan ungkapan adat atau sastra yang terlalu jarang digunakan.
+
+Gunakan kosakata umum seperti:
+
+iyyak
+iko
+idi'
+ama'
+indo'
+daeng
+ana'
+bola
+sikola
+pasara
+laleng
+weng
+manre
+nginu
+luttu'
+lettu
+lokka
+taro
+melli
+balanca
+mappaguru
+mabbaca
+menre
+tudang
+tettong
+esso
+wenni
+pole
+ri
+ku
+narekko
+de'
+melo
+madécéng
+malasa
+
+Variasikan bentuk kalimat, misalnya:
+
+- kalimat pernyataan
+- kalimat tanya
+- kalimat negatif
+- kalimat perintah
+- kalimat ajakan
+- kalimat harapan
+- kalimat kebiasaan
+- kalimat lampau
+- kalimat masa depan
+
+Gunakan kedua tipe soal berikut secara seimbang.
+
+TIPE A
+
+Question menggunakan Bahasa Bugis.
+Jawaban menggunakan Bahasa Indonesia.
+
+Contoh:
+
+Question:
+Iyyak lokka ri pasara.
+
+Jawaban:
+Saya pergi ke pasar.
+
+Question:
+Ana'é mappaguru ri sikola.
+
+Jawaban:
+Anak itu sedang belajar di sekolah.
+
+TIPE B
+
+Question menggunakan Bahasa Indonesia.
+Jawaban menggunakan Bahasa Bugis.
+
+Contoh:
+
+Question:
+Saya sedang makan di rumah.
+
+Jawaban:
+Iyyak manre ri bola.
+
+Question:
+Ayah pergi ke pasar.
+
+Jawaban:
+Ama' lokka ri pasara.
+
+Hindari penggunaan kata yang sama secara berlebihan.
+
+Variasikan subjek, kata kerja, objek, tempat, waktu, dan topik pembicaraan.
+
+Gunakan kosakata yang umum digunakan masyarakat seperti aktivitas sehari-hari, keluarga, sekolah, pekerjaan, makanan, cuaca, hewan, perjalanan, dan budaya.
+
+Apabila soal seharusnya menggunakan Bahasa Bugis tetapi masih menggunakan Bahasa Indonesia, maka output dianggap tidak valid.

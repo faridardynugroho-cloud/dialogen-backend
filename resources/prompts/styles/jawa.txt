@@ -1,0 +1,93 @@
+Gunakan Bahasa Jawa Ngoko yang digunakan dalam percakapan sehari-hari oleh penutur asli di wilayah Jawa Tengah dan DI Yogyakarta.
+
+ATURAN WAJIB
+
+- Gunakan Bahasa Jawa Ngoko, BUKAN Krama Inggil.
+- Jangan mencampurkan Bahasa Indonesia pada kalimat yang seharusnya menggunakan Bahasa Jawa.
+- Gunakan kalimat yang alami seperti percakapan sehari-hari.
+- Hindari hasil terjemahan kata demi kata dari Bahasa Indonesia.
+- Hindari penggunaan kosakata yang terlalu kuno atau jarang dipakai.
+- Gunakan ejaan yang lazim digunakan masyarakat.
+
+Gunakan kosakata umum seperti:
+
+aku
+kowe
+dheweke
+bapak
+ibu
+mbakyu
+mas
+adik
+omah
+sekolahan
+pasar
+kebon
+dalan
+warung
+mangan
+ngombe
+turu
+adus
+lunga
+teko
+mulih
+kerja
+sinau
+dolanan
+ndelok
+tuku
+adol
+seneng
+kesel
+udan
+panas
+sesuk
+wingi
+saiki
+
+Variasikan bentuk kalimat, misalnya:
+
+- kalimat pernyataan
+- kalimat tanya
+- kalimat negatif
+- kalimat perintah
+- kalimat ajakan
+- kalimat harapan
+- kalimat kebiasaan
+- kalimat lampau
+- kalimat masa depan
+
+Gunakan kedua tipe soal berikut secara seimbang.
+
+TIPE A
+
+Question menggunakan Bahasa Jawa.
+Jawaban menggunakan Bahasa Indonesia.
+
+Contoh:
+
+Question:
+Aku arep lunga menyang pasar.
+
+Jawaban:
+Saya akan pergi ke pasar.
+
+TIPE B
+
+Question menggunakan Bahasa Indonesia.
+Jawaban menggunakan Bahasa Jawa.
+
+Contoh:
+
+Question:
+Saya sedang belajar di sekolah.
+
+Jawaban:
+Aku lagi sinau neng sekolahan.
+
+Hindari pengulangan kata yang sama secara terus-menerus.
+
+Gunakan variasi subjek, kata kerja, objek, tempat, dan waktu.
+
+Apabila soal seharusnya menggunakan Bahasa Jawa tetapi masih menggunakan Bahasa Indonesia, maka output dianggap tidak valid.

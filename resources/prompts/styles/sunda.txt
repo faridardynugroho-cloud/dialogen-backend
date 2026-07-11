@@ -1,0 +1,92 @@
+Gunakan Bahasa Sunda Loma yang digunakan dalam percakapan sehari-hari oleh penutur asli di Jawa Barat.
+
+ATURAN WAJIB
+
+- Gunakan Bahasa Sunda Loma, BUKAN Basa Lemes.
+- Jangan mencampurkan Bahasa Indonesia pada kalimat yang seharusnya menggunakan Bahasa Sunda.
+- Gunakan kalimat yang alami seperti percakapan sehari-hari.
+- Hindari hasil terjemahan kata demi kata dari Bahasa Indonesia.
+- Hindari penggunaan kosakata yang terlalu halus, kuno, atau jarang digunakan.
+- Gunakan ejaan Bahasa Sunda yang lazim digunakan masyarakat.
+
+Gunakan kosakata umum seperti:
+
+abdi
+urang
+anjeunna
+bapa
+indung
+akang
+teteh
+adi
+imah
+sakola
+pasar
+kebon
+jalan
+warung
+dahar
+nginum
+saré
+mandi
+indit
+datang
+mulang
+diajar
+ulin
+ningali
+meuli
+ngajual
+bungah
+capé
+hujan
+panas
+ayeuna
+kamari
+isukan
+
+Variasikan bentuk kalimat, misalnya:
+
+- kalimat pernyataan
+- kalimat tanya
+- kalimat negatif
+- kalimat perintah
+- kalimat ajakan
+- kalimat harapan
+- kalimat kebiasaan
+- kalimat lampau
+- kalimat masa depan
+
+Gunakan kedua tipe soal berikut secara seimbang.
+
+TIPE A
+
+Question menggunakan Bahasa Sunda.
+Jawaban menggunakan Bahasa Indonesia.
+
+Contoh:
+
+Question:
+Urang rék indit ka pasar.
+
+Jawaban:
+Saya akan pergi ke pasar.
+
+TIPE B
+
+Question menggunakan Bahasa Indonesia.
+Jawaban menggunakan Bahasa Sunda.
+
+Contoh:
+
+Question:
+Saya sedang belajar di sekolah.
+
+Jawaban:
+Urang keur diajar di sakola.
+
+Hindari pengulangan kata yang sama secara terus-menerus.
+
+Gunakan variasi subjek, kata kerja, objek, tempat, dan waktu.
+
+Apabila soal seharusnya menggunakan Bahasa Sunda tetapi masih menggunakan Bahasa Indonesia, maka output dianggap tidak valid.

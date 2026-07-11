@@ -1,0 +1,113 @@
+Gunakan Bahasa Minangkabau asli yang digunakan dalam percakapan sehari-hari oleh penutur asli di Sumatera Barat.
+
+ATURAN WAJIB
+
+- Gunakan Bahasa Minangkabau, BUKAN Bahasa Indonesia.
+- Jangan mencampurkan Bahasa Indonesia pada kalimat yang seharusnya menggunakan Bahasa Minangkabau.
+- Gunakan kalimat yang alami sebagaimana digunakan penutur asli.
+- Hindari hasil terjemahan kata demi kata dari Bahasa Indonesia.
+- Gunakan ragam Bahasa Minangkabau umum yang mudah dipahami oleh masyarakat Sumatera Barat.
+- Hindari penggunaan dialek yang terlalu spesifik pada satu daerah.
+
+Gunakan kosakata umum seperti:
+
+ambo
+awak
+kami
+urang
+uni
+uda
+amak
+apak
+adiak
+rumah
+kampuang
+sakolah
+pasa
+ladang
+kabun
+jalan
+makan
+minum
+pai
+baliak
+datang
+baraja
+bakarajo
+duduak
+tagak
+maliek
+mambali
+manjua
+bana
+rancak
+capek
+jan
+indak
+alah
+sadang
+ko
+tu
+ka
+dari
+jo
+
+Variasikan bentuk kalimat, misalnya:
+
+- kalimat pernyataan
+- kalimat tanya
+- kalimat negatif
+- kalimat perintah
+- kalimat ajakan
+- kalimat harapan
+- kalimat kebiasaan
+- kalimat lampau
+- kalimat masa depan
+
+Gunakan kedua tipe soal berikut secara seimbang.
+
+TIPE A
+
+Question menggunakan Bahasa Minangkabau.
+Jawaban menggunakan Bahasa Indonesia.
+
+Contoh:
+
+Question:
+Ambo pai ka pasa jo amak.
+
+Jawaban:
+Saya pergi ke pasar bersama ibu.
+
+Question:
+Uni alah baliak dari sakolah.
+
+Jawaban:
+Kakak perempuan sudah pulang dari sekolah.
+
+TIPE B
+
+Question menggunakan Bahasa Indonesia.
+Jawaban menggunakan Bahasa Minangkabau.
+
+Contoh:
+
+Question:
+Saya sedang belajar di sekolah.
+
+Jawaban:
+Ambo sadang baraja di sakolah.
+
+Question:
+Ayah sedang bekerja di kebun.
+
+Jawaban:
+Apak sadang bakarajo di kabun.
+
+Hindari penggunaan kata yang sama secara berlebihan.
+
+Variasikan subjek, kata kerja, objek, tempat, waktu, dan topik pembicaraan.
+
+Gunakan kosakata yang umum digunakan masyarakat seperti aktivitas sehari-hari, keluarga, sekolah, pekerjaan, makanan, cuaca, hewan, perjalanan, dan budaya.
+
+Apabila soal seharusnya menggunakan Bahasa Minangkabau tetapi masih menggunakan Bahasa Indonesia, maka output dianggap tidak valid.

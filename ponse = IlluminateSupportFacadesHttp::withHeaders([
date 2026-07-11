@@ -1,0 +1,70 @@
+{
+  "id": "chatcmpl-DvTXaJ1ybrQvvDwVGXcHZYzVm7Wtu",
+  "object": "chat.completion",
+  "created": 1782590622,
+  "model": "gpt-5-mini-2025-08-07",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "[{\"question\":\"Menapa tembung krama inggil saking 'saya'?\", \"options\":[\"Kula\",\"Aku\",\"Kowe\",\"Panjenengan\"], \"correct_answer\":0, \"region\":\"Jawa halus\"}, {\"question\":\"Pratelan krama inggil ingkang leres kanggé nyuwun pangapunten inggih punika?\", \"options\":[\"Kula nyuwun pangapunten\",\"Nuwun sewu\",\"Matur nuwun sanget\",\"Aku nyuwun pangapunten\"], \"correct_answer\":0, \"region\":\"Jawa halus\"}]",
+        "refusal": null,
+        "annotations": []
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 78,
+    "completion_tokens": 1478,
+    "total_tokens": 1556,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1344,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": null
+}
+{
+  "id": "chatcmpl-DvTT5lh2apwdOEqb8VVXbSyscnU5k",
+  "object": "chat.completion",
+  "created": 1782590343,
+  "model": "gpt-5-mini-2025-08-07",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "",
+        "refusal": null,
+        "annotations": []
+      },
+      "finish_reason": "length"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 11,
+    "completion_tokens": 10,
+    "total_tokens": 21,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 10,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": null
+}

@@ -1,0 +1,138 @@
+Buat {{count}} soal pilihan ganda dalam kategori {{language}}.
+
+{{style_instruction}}
+
+Variasikan topik soal, seperti:
+
+- aktivitas sehari-hari
+- keluarga
+- sekolah
+- pekerjaan
+- rumah
+- pasar
+- makanan
+- transportasi
+- ibadah
+- cuaca
+- hewan
+- perasaan
+- perjalanan
+- alam
+- olahraga
+- hobi
+- tradisi
+- hari raya
+- kendaraan
+- berkebun
+- membaca
+- menulis
+- bermain
+- liburan
+
+Jangan membuat lebih dari dua soal berturut-turut dengan topik yang sama.
+
+Variasikan tipe soal.
+
+Gunakan kombinasi berikut secara seimbang:
+
+TIPE A
+- Question menggunakan bahasa daerah.
+- Correct answer menggunakan Bahasa Indonesia.
+- Wrong answers menggunakan Bahasa Indonesia.
+
+TIPE B
+- Question menggunakan Bahasa Indonesia.
+- Correct answer menggunakan bahasa daerah.
+- Wrong answers menggunakan bahasa daerah.
+
+Usahakan jumlah TIPE A dan TIPE B relatif seimbang.
+
+Variasikan struktur kalimat.
+
+Jangan selalu menggunakan pola:
+
+Subjek + Predikat + Objek
+
+Gunakan berbagai bentuk seperti:
+
+- Subjek + Predikat
+- Subjek + Predikat + Tempat
+- Subjek + Predikat + Objek
+- Subjek + Predikat + Keterangan
+- Kalimat kebiasaan
+- Kalimat lampau
+- Kalimat masa depan
+- Kalimat kemampuan
+- Kalimat keinginan
+- Kalimat ajakan
+- Kalimat tanya
+- Kalimat negatif
+- Kalimat perintah
+- Kalimat harapan
+- Kalimat sebab akibat sederhana
+
+Hindari penggunaan kata yang sama secara berlebihan, misalnya:
+
+ayah
+ibu
+kakak
+adik
+rumah
+pasar
+makan
+pergi
+belajar
+
+Gunakan variasi kosakata apabila memungkinkan.
+
+Distraktor:
+
+- Buat empat pilihan jawaban.
+- Tepat satu jawaban benar.
+- Tiga jawaban salah tetap logis.
+- Semua pilihan menggunakan subjek yang sama jika memungkinkan.
+- Gunakan objek atau tempat yang sama jika memungkinkan.
+- Perbedaan utama hanya pada makna.
+
+Keyword wajib:
+
+- subject
+- verb
+- object
+- place
+- time
+
+Isi null jika tidak ada.
+
+Berikut adalah contoh soal yang SUDAH ADA.
+
+{{recent_questions}}
+
+Jangan membuat soal yang:
+
+- memiliki arti sama
+- menggunakan struktur yang sama
+- menggunakan kosakata utama yang sama
+
+Output HARUS berupa JSON dengan format berikut:
+
+{
+  "questions": [
+    {
+      "question": "",
+      "correct_answer": "",
+      "wrong_answers": [
+        "",
+        "",
+        ""
+      ],
+      "keywords": {
+        "subject": "",
+        "verb": "",
+        "object": null,
+        "place": null,
+        "time": null
+      }
+    }
+  ]
+}
