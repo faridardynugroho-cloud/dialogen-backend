@@ -13,7 +13,7 @@
                 Tentang Dialogen
             </span>
             <h1 class="mt-6 text-3xl sm:text-5xl font-extrabold text-white leading-tight max-w-3xl mx-auto">
-                Melestarikan Bahasa Daerah, Satu Kuis dalam Satu Waktu
+                Memperkenalkan Bahasa Daerah, Menjaga budaya lokal Indonesia 
             </h1>
             <p class="mt-5 text-white/90 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
                 Dialogen adalah platform kuis multiplayer real-time yang mengajak generasi muda mengenal kembali kekayaan bahasa daerah Indonesia lewat cara yang kompetitif, sosial, dan menyenangkan.
@@ -106,7 +106,7 @@
                     A
                 </div>
                 <div class="text-left">
-                    <p class="font-bold text-brand-navy">Ardy</p>
+                    <p class="font-bold text-brand-navy">Ardiart</p>
                     <p class="text-sm text-gray-500">Pengembang & Pencipta Dialogen</p>
                 </div>
             </div>
