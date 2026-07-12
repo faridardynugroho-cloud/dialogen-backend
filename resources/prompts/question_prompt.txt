@@ -65,7 +65,6 @@ Gunakan berbagai bentuk seperti:
 - Kalimat kemampuan
 - Kalimat keinginan
 - Kalimat ajakan
-- Kalimat tanya
 - Kalimat negatif
 - Kalimat perintah
 - Kalimat harapan

@@ -48,7 +48,6 @@ isukan
 Variasikan bentuk kalimat, misalnya:
 
 - kalimat pernyataan
-- kalimat tanya
 - kalimat negatif
 - kalimat perintah
 - kalimat ajakan
