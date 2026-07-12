@@ -123,7 +123,7 @@
             <section id="penyimpanan">
                 <h2 class="text-xl font-extrabold text-brand-navy mb-4">6. Penyimpanan & Keamanan Data</h2>
                 <p>Kami menerapkan langkah-langkah teknis yang wajar untuk melindungi data Anda, termasuk enkripsi koneksi (HTTPS/WSS) dan pembatasan akses ke basis data. Namun demikian, tidak ada metode transmisi data melalui internet yang 100% aman.</p>
-                <p class="mt-3">Data gameplay (skor, riwayat pertandingan) disimpan selama diperlukan untuk fungsi papan skor dan dapat dihapus secara berkala. Data akun disimpan selama akun Anda aktif.</p>
+                <p class="mt-3">Data gameplay (skor, riwayat pertandingan) disimpan selama diperlukan untuk fungsi papan skor dan dapat dihapus secara berkala.</p>
             </section>
 
             <section id="hak-pengguna">
