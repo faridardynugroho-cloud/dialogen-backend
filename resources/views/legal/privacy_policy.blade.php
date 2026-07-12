@@ -26,7 +26,7 @@
                     <li><a href="#pendahuluan" class="block pl-4 -ml-px border-l-2 border-transparent hover:border-brand-red hover:text-brand-red transition-colors">Pendahuluan</a></li>
                     <li><a href="#data-dikumpulkan" class="block pl-4 -ml-px border-l-2 border-transparent hover:border-brand-red hover:text-brand-red transition-colors">Data yang Dikumpulkan</a></li>
                     <li><a href="#penggunaan-data" class="block pl-4 -ml-px border-l-2 border-transparent hover:border-brand-red hover:text-brand-red transition-colors">Penggunaan Data</a></li>
-                    <li><a href="#voice-chat" class="block pl-4 -ml-px border-l-2 border-transparent hover:border-brand-red hover:text-brand-red transition-colors">Voice Chat</a></li>
+                    <li><a href="#message-chat" class="block pl-4 -ml-px border-l-2 border-transparent hover:border-brand-red hover:text-brand-red transition-colors">Message Chat</a></li>
                     <li><a href="#pihak-ketiga" class="block pl-4 -ml-px border-l-2 border-transparent hover:border-brand-red hover:text-brand-red transition-colors">Pihak Ketiga</a></li>
                     <li><a href="#penyimpanan" class="block pl-4 -ml-px border-l-2 border-transparent hover:border-brand-red hover:text-brand-red transition-colors">Penyimpanan & Keamanan</a></li>
                     <li><a href="#hak-pengguna" class="block pl-4 -ml-px border-l-2 border-transparent hover:border-brand-red hover:text-brand-red transition-colors">Hak Pengguna</a></li>
@@ -60,7 +60,7 @@
                 <ul class="list-disc pl-5 space-y-1.5">
                     <li><strong>Data gameplay</strong> — skor, jawaban, waktu respons, dan riwayat pertandingan yang tersimpan selama sesi berlangsung untuk keperluan papan skor.</li>
                     <li><strong>Informasi perangkat</strong> — jenis perangkat, sistem operasi, dan versi aplikasi, digunakan untuk keperluan debugging dan kompatibilitas.</li>
-                    <li><strong>Data koneksi</strong> — alamat IP sementara digunakan oleh layanan WebSocket (Laravel Reverb) dan voice chat untuk menjaga koneksi real-time tetap stabil.</li>
+                    <li><strong>Data koneksi</strong> — alamat IP sementara digunakan oleh layanan WebSocket (Laravel Reverb) dan message chat untuk menjaga koneksi real-time tetap stabil.</li>
                 </ul>
 
                 <h3 class="font-bold text-brand-navy mt-6 mb-2">2.3 Informasi yang Tidak Kami Kumpulkan</h3>
@@ -79,15 +79,15 @@
                 <p class="mt-3">Kami <strong>tidak menjual, menyewakan, atau memperdagangkan</strong> data pribadi Anda kepada pihak ketiga untuk tujuan pemasaran.</p>
             </section>
 
-            <section id="voice-chat">
-                <h2 class="text-xl font-extrabold text-brand-navy mb-4">4. Voice Chat</h2>
-                <p>Dialogen menyediakan fitur voice chat berbasis teknologi WebRTC untuk memungkinkan komunikasi langsung antar pemain dalam satu room.</p>
+            <section id="message-chat">
+                <h2 class="text-xl font-extrabold text-brand-navy mb-4">4. Message Chat</h2>
+                <p>Dialogen menyediakan fitur message chat berbasis teknologi Websocket untuk memungkinkan komunikasi langsung antar pemain dalam satu room.</p>
                 <ul class="list-disc pl-5 space-y-1.5 mt-3">
-                    <li>Audio suara <strong>diteruskan secara real-time (live) dan tidak direkam maupun disimpan</strong> di server kami.</li>
-                    <li>Koneksi audio diproses melalui server relay untuk menjaga kualitas dan stabilitas panggilan suara antar pemain.</li>
-                    <li>Anda dapat menonaktifkan mikrofon kapan saja melalui pengaturan dalam room permainan.</li>
+                    <li>Pesan <strong>diteruskan secara real-time (live) dan tidak dipantau maupun disimpan</strong> di server kami.</li>
+                    <li>Koneksi pesan diproses melalui server reverb untuk menjaga kualitas dan stabilitas komunikasi antar pemain.</li>
+                    <li>Anda dapat mengabaikan pesan masuk pada message chat kapan saja didalam room permainan.</li>
                 </ul>
-                <p class="mt-3">Kami menghimbau pengguna untuk menjaga etika berkomunikasi selama voice chat berlangsung, sebagaimana diatur dalam <a href="{{ route('legal.terms') }}">Syarat & Ketentuan</a> kami.</p>
+                <p class="mt-3">Kami menghimbau pengguna untuk menjaga etika berkomunikasi dalam message chat, sebagaimana diatur dalam <a href="{{ route('legal.terms') }}">Syarat & Ketentuan</a> kami.</p>
             </section>
 
             <section id="pihak-ketiga">
@@ -104,7 +104,7 @@
                         <tbody class="divide-y divide-gray-100">
                             <tr>
                                 <td class="px-4 py-3 font-medium">Server Infrastruktur (Cloud Hosting)</td>
-                                <td class="px-4 py-3 text-gray-500">Menjalankan API, WebSocket, dan server voice chat.</td>
+                                <td class="px-4 py-3 text-gray-500">Menjalankan API, WebSocket, dan server message chat.</td>
                             </tr>
                             <tr>
                                 <td class="px-4 py-3 font-medium">Layanan AI Pihak Ketiga</td>
@@ -132,8 +132,7 @@
                 <ul class="list-disc pl-5 space-y-1.5 mt-3">
                     <li>Mengakses dan meminta salinan data pribadi yang kami simpan tentang Anda.</li>
                     <li>Meminta koreksi atas data yang tidak akurat.</li>
-                    <li><strong>Meminta penghapusan akun dan data terkait</strong> melalui fitur di dalam aplikasi atau dengan menghubungi kami melalui halaman <a href="{{ route('legal.feedback') }}">Kirim Masukan</a>.</li>
-                    <li>Menarik persetujuan penggunaan mikrofon (voice chat) kapan saja melalui pengaturan aplikasi atau perangkat.</li>
+                    <li><strong>Meminta penghapusan data pribadi</strong> melalui fitur di dalam aplikasi atau dengan menghubungi kami melalui halaman <a href="{{ route('legal.feedback') }}">Kirim Masukan</a>.</li>
                 </ul>
                 <p class="mt-3">Permintaan penghapusan data akan kami proses dalam waktu yang wajar, kecuali terdapat kewajiban hukum untuk menyimpan data tersebut.</p>
             </section>
@@ -153,7 +152,7 @@
                 <p>Jika Anda memiliki pertanyaan, keluhan, atau permintaan terkait data pribadi Anda, silakan hubungi kami melalui:</p>
                 <div class="mt-4 bg-gray-50 rounded-xl p-6 border border-gray-100">
                     <p class="font-semibold text-brand-navy">Tim Dialogen</p>
-                    <p class="text-sm text-gray-500 mt-1">Email: <a href="mailto:support@dialogen.app">support@dialogen.app</a></p>
+                    <p class="text-sm text-gray-500 mt-1">Email: <a href="mailto:dialogen.app@gmail.com">dialogen.app@gmail.com</a></p>
                     <p class="text-sm text-gray-500 mt-1">Atau melalui formulir <a href="{{ route('legal.feedback') }}">Kirim Masukan</a> di dalam aplikasi.</p>
                 </div>
             </section>

@@ -76,7 +76,7 @@
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 @foreach ([
                     ['icon' => '🎮', 'title' => 'Kuis Real-time', 'desc' => 'Bermain bersama teman secara langsung dengan timer yang tersinkronisasi untuk semua pemain.'],
-                    ['icon' => '🎙️', 'title' => 'Voice Chat', 'desc' => 'Ngobrol langsung dengan sesama pemain di dalam room lewat fitur voice chat terintegrasi.'],
+                    ['icon' => '✉️', 'title' => 'Message Chat', 'desc' => 'Kirim pesan langsung dengan sesama pemain di dalam room lewat fitur message chat terintegrasi.'],
                     ['icon' => '🏆', 'title' => 'Papan Skor Dinamis', 'desc' => 'Pantau peringkatmu secara real-time dengan animasi perubahan posisi yang responsif.'],
                     ['icon' => '🗺️', 'title' => '5 Bahasa Daerah', 'desc' => 'Jawa, Sunda, Minangkabau, Bali, dan Bugis — dengan konten yang terus bertambah.'],
                     ['icon' => '🚪', 'title' => 'Room Privat', 'desc' => 'Buat room sendiri dan undang teman lewat kode unik untuk sesi bermain bersama.'],
@@ -97,7 +97,7 @@
         <span class="text-brand-red font-bold text-sm uppercase tracking-wide">Di Balik Layar</span>
         <h2 class="mt-3 text-2xl sm:text-3xl font-extrabold text-brand-navy">Dikembangkan dengan Dedikasi</h2>
         <p class="mt-4 text-gray-600 max-w-xl mx-auto leading-relaxed">
-            Dialogen dikembangkan secara independen sebagai upaya nyata memadukan teknologi mobile modern dengan pelestarian budaya lokal Indonesia.
+            Dialogen dikembangkan secara independen sebagai upaya nyata memadukan teknologi mobile modern dengan budaya lokal Indonesia.
         </p>
 
         <div class="mt-10 flex justify-center">
