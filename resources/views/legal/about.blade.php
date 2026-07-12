@@ -7,7 +7,7 @@
 
     {{-- HERO --}}
     <section class="relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-b from-brand-red via-brand-red/90 to-white" style="height: 420px;"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-brand-red via-brand-red/100 to-white" style="height: 450px;"></div>
         <div class="relative max-w-5xl mx-auto px-5 sm:px-8 pt-16 pb-24 text-center">
             <span class="inline-block px-4 py-1.5 rounded-full bg-white/15 text-white text-xs font-semibold tracking-wide uppercase backdrop-blur-sm border border-white/20">
                 Tentang Dialogen
