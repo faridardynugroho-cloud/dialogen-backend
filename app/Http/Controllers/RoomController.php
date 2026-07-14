@@ -12,6 +12,7 @@ use App\Events\ChatMessageSent;
 use App\Events\GameStarted;
 use App\Events\ScoreUpdated;
 use App\Events\PlayerOffline;
+use App\Events\PlayerKicked;
 use App\Services\RoomQuestionService;
 use App\Jobs\GenerateRoomQuestionsJob;
 use Illuminate\Support\Facades\Log;
@@ -550,6 +551,47 @@ class RoomController extends Controller
             'success' => true,
             'new_host_id' => null,
         ]);
+    }
+
+    // ── POST /api/rooms/{code}/kick
+    public function kick(Request $request, string $code)
+    {
+        $request->validate([
+            'requester_id' => 'required|integer',
+            'target_id'    => 'required|integer',
+        ]);
+
+        $room = Room::with('players')->where('code', strtoupper($code))->first();
+
+        if (!$room) {
+            return response()->json(['message' => 'Room tidak ditemukan'], 404);
+        }
+
+        $requester = $room->players()->find($request->requester_id);
+
+        if (!$requester || !$requester->is_host) {
+            return response()->json(['message' => 'Hanya host yang bisa mengeluarkan player'], 403);
+        }
+
+        if ((int) $request->target_id === (int) $requester->id) {
+            return response()->json(['message' => 'Tidak bisa mengeluarkan diri sendiri'], 400);
+        }
+
+        $target = $room->players()->find($request->target_id);
+
+        if (!$target) {
+            return response()->json(['message' => 'Player tidak ditemukan'], 404);
+        }
+
+        $kickedId = $target->id;
+        $kickedUsername = $target->username;
+        $target->delete();
+
+        $allPlayers = $this->formatPlayers($room->fresh()->players);
+
+        event(new PlayerKicked($room, $allPlayers, $kickedId, $kickedUsername));
+
+        return response()->json(['message' => 'Player dikeluarkan']);
     }
 
     public function checkUsername(Request $request, string $code)

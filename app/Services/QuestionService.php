@@ -35,12 +35,12 @@ class QuestionService
             $candidates = $fresh;
         }
 
-        logger()->info("Candidate = ".$candidates->count());
+        logger()->info("Candidate = " . $candidates->count());
 
         // Selector cukup dipanggil SEKALI — tracker konsisten untuk semua kandidat
         $selected = $this->selector->select($candidates, $limit);
 
-        logger()->info("Selected = ".$selected->count());
+        logger()->info("Selected = " . $selected->count());
 
         return $selected->shuffle();
     }
@@ -66,18 +66,11 @@ class QuestionService
         $crossedCount = $crossedThreshold->count();
 
         if ($crossedCount === 0) {
-            // Query 2a: hanya update used_questions
-            $this->poolService->increaseUsageBy(
-                $questions->first()->language,
-                $questions->count()
-            );
             return;
         }
 
-        // Query 2b: update used_questions dan fresh_questions bersamaan
+        // Query 2: update fresh_questions
         $language = $questions->first()->language;
-
-        $this->poolService->increaseUsageBy($language, $questions->count());
         $this->poolService->decreaseFreshBy($language, $crossedCount);
     }
 

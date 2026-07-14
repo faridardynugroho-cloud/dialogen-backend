@@ -20,6 +20,7 @@ Route::post('/rooms/{code}/finish', [RoomController::class, 'finish']);
 Route::post('/rooms/{code}/reset', [RoomController::class, 'reset']);
 Route::get('/rooms/{code}/check-username', [RoomController::class, 'checkUsername']);
 Route::post('/rooms/{code}/next-question', [RoomController::class, 'nextQuestion']);
+Route::post('/rooms/{code}/kick', [RoomController::class, 'kick']);
 
 //AI Controller
 Route::post('/ai/generate-questions', [AiController::class, 'generateQuestions']);

@@ -13,7 +13,6 @@ class QuestionPoolService
             ['language' => $language],
             [
                 'total_questions' => 0,
-                'used_questions' => 0,
                 'fresh_questions' => 0,
                 'is_generating' => false,
             ]
@@ -75,13 +74,6 @@ class QuestionPoolService
         $pool->increment('fresh_questions', $count);
     }
 
-    public function increaseUsage(string $language): void
-    {
-        $pool = $this->getPool($language);
-
-        $pool->increment('used_questions');
-    }
-
     public function decreaseFresh(string $language): void
     {
         $pool = $this->getPool($language);
@@ -91,7 +83,6 @@ class QuestionPoolService
         }
     }
 
-    // QuestionPoolService
     public function hasEnoughQuestions(string $language, int $needed): bool
     {
         return $this->getPool($language)->fresh_questions >= $needed;
@@ -100,12 +91,6 @@ class QuestionPoolService
     public function hasEnoughTotalQuestions(string $language, int $needed): bool
     {
         return Question::where('language', $language)->count() >= $needed;
-    }
-
-    public function increaseUsageBy(string $language, int $count): void
-    {
-        $pool = $this->getPool($language);
-        $pool->increment('used_questions', $count);
     }
 
     public function decreaseFreshBy(string $language, int $count): void

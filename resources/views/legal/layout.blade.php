@@ -58,7 +58,7 @@
                 </a>
                 <a href="{{ route('legal.privacy') }}"
                    class="px-3 py-2 rounded-lg transition-colors {{ request()->routeIs('legal.privacy') ? 'text-brand-navy bg-gray-100' : 'text-gray-500 hover:text-brand-navy hover:bg-gray-50' }}">
-                    Privasi
+                    Kebijakan Privasi
                 </a>
                 <a href="{{ route('legal.terms') }}"
                    class="px-3 py-2 rounded-lg transition-colors {{ request()->routeIs('legal.terms') ? 'text-brand-navy bg-gray-100' : 'text-gray-500 hover:text-brand-navy hover:bg-gray-50' }}">
