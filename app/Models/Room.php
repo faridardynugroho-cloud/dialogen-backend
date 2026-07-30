@@ -31,4 +31,9 @@ class Room extends Model
         return $this->hasMany(RoomQuestion::class)
             ->orderBy('question_order');
     }
+
+    public function language()
+    {
+        return $this->belongsTo(Language::class);
+    }
 }

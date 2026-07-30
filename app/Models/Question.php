@@ -24,4 +24,9 @@ class Question extends Model
     {
         return $this->hasMany(RoomQuestion::class);
     }
+
+    public function language()
+    {
+        return $this->belongsTo(Language::class);
+    }
 }

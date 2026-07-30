@@ -18,4 +18,9 @@ class QuestionPool extends Model
         'last_generated' => 'datetime',
         'is_generating' => 'boolean',
     ];
+
+    public function language()
+    {
+        return $this->belongsTo(Language::class);
+    }
 }
