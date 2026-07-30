@@ -8,6 +8,7 @@ class QuestionPool extends Model
 {
     protected $fillable = [
         'language',
+        'language_id',
         'total_questions',
         'fresh_questions',
         'is_generating',

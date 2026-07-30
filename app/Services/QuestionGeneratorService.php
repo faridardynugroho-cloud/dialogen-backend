@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Question;
 use Illuminate\Support\Facades\Log;
+use App\Models\Language;
 
 class QuestionGeneratorService
 {
@@ -18,17 +19,9 @@ class QuestionGeneratorService
         );
     }
 
-     private function loadStyleInstruction(string $language): string
+    private function loadStyleInstruction(string $language): string
     {
-        $map = [
-            'Bahasa Jawa'        => 'jawa.txt',
-            'Bahasa Sunda'       => 'sunda.txt',
-            'Bahasa Minangkabau' => 'minangkabau.txt',
-            'Bahasa Bali'        => 'bali.txt',
-            'Bahasa Bugis'       => 'bugis.txt',
-        ];
-
-        $file = $map[$language] ?? null;
+        $file = Language::where('name', $language)->value('style_file');
 
         if (!$file) {
             return "Gunakan {$language} sehari-hari yang alami.";
@@ -60,7 +53,7 @@ class QuestionGeneratorService
         );
     }
 
-    
+
 
     public function generate(
         string $language,
@@ -77,7 +70,7 @@ class QuestionGeneratorService
             'ms' => round((microtime(true) - $start) * 1000)
         ]);
 
-       $styleInstruction = $this->loadStyleInstruction($language);
+        $styleInstruction = $this->loadStyleInstruction($language);
 
         $recentQuestions = Question::where('language', $language)
             ->latest()
@@ -153,6 +146,7 @@ class QuestionGeneratorService
     ): array {
 
         $savedQuestions = [];
+        $languageModel = Language::resolve($language);
 
         foreach ($questions as $question) {
 
@@ -164,7 +158,7 @@ class QuestionGeneratorService
             );
 
             if (
-                Question::where('language', $language)
+                Question::where('language_id', $languageModel->id)
                 ->where('question', $question['question'])
                 ->exists()
             ) {
@@ -173,6 +167,7 @@ class QuestionGeneratorService
 
             $saved = Question::create([
                 'language' => $language,
+                'language_id' => $languageModel->id,
                 'question' => $question['question'],
                 'options' => $shuffle['options'],
                 'correct_option' => $shuffle['correct_option'],

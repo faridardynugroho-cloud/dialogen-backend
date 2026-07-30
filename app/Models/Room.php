@@ -12,6 +12,7 @@ class Room extends Model
         'host_player_id',
         'max_players',
         'category',
+        'language_id',
         'time_limit',
         'questions_ready',
     ];

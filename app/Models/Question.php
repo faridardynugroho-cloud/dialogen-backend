@@ -8,6 +8,7 @@ class Question extends Model
 {
     protected $fillable = [
         'language',
+        'language_id',
         'question',
         'options',
         'correct_option',

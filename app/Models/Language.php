@@ -17,6 +17,13 @@ class Language extends Model
         'is_active' => 'boolean',
     ];
 
+    protected static array $cache = [];
+
+    public static function resolve(string $name): self
+    {
+        return static::$cache[$name] ??= static::where('name', $name)->firstOrFail();
+    }
+
     public function questions()
     {
         return $this->hasMany(Question::class);

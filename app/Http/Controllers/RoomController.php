@@ -210,6 +210,10 @@ class RoomController extends Controller
         $room->update($request->only(['category', 'time_limit', 'max_players']));
 
         if ($categoryChanged) {
+            $room->update(['language_id' => \App\Models\Language::where('name', $request->category)->value('id')]);
+        }
+
+        if ($categoryChanged) {
             // Reset soal lama, generate baru
             $this->roomQuestionService->deleteRoomQuestions($room);
             $room->update(['questions_ready' => false]);

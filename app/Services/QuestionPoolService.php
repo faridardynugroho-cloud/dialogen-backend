@@ -4,14 +4,18 @@ namespace App\Services;
 
 use App\Models\Question;
 use App\Models\QuestionPool;
+use App\Models\Language;
 
 class QuestionPoolService
 {
     private function getPool(string $language): QuestionPool
     {
+        $languageModel = Language::resolve($language);
         return QuestionPool::firstOrCreate(
             ['language' => $language],
+            ['language_id' => $languageModel->id],
             [
+                'language' => $language,
                 'total_questions' => 0,
                 'fresh_questions' => 0,
                 'is_generating' => false,
@@ -28,7 +32,7 @@ class QuestionPoolService
         }
 
         // Hitung fresh count langsung dari sumber asli, jangan andalkan cache
-        $actualFresh = \App\Models\Question::where('language', $language)
+        $actualFresh = \App\Models\Question::where('language_id', $pool->language_id)
             ->where('usage_count', '<', 2)
             ->count();
 
@@ -90,7 +94,7 @@ class QuestionPoolService
 
     public function hasEnoughTotalQuestions(string $language, int $needed): bool
     {
-        return Question::where('language', $language)->count() >= $needed;
+        return Question::where('language_id', Language::resolve($language)->id)->count() >= $needed;
     }
 
     public function decreaseFreshBy(string $language, int $count): void

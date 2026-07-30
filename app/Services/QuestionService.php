@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Question;
 use Illuminate\Support\Collection;
+use App\Models\Language;
 
 class QuestionService
 {
@@ -82,12 +83,11 @@ class QuestionService
         string $language,
         int $limit
     ): Collection {
+        $languageId = Language::resolve($language)->id;
 
-        return Question::where('language', $language)
+        return Question::where('language_id', $languageId)
             ->where('usage_count', '<', self::USAGE_THRESHOLD)
-            ->inRandomOrder()
-            ->limit($limit)
-            ->get();
+            ->inRandomOrder()->limit($limit)->get();
     }
 
     private function pickOldQuestions(
@@ -96,11 +96,11 @@ class QuestionService
         Collection $excludeIds = new Collection()
     ): Collection {
 
-        return Question::where('language', $language)
+        $languageId = Language::resolve($language)->id;
+
+        return Question::where('language_id', $languageId)
             ->where('usage_count', '>=', self::USAGE_THRESHOLD)
             ->whereNotIn('id', $excludeIds)
-            ->inRandomOrder()
-            ->limit($limit)
-            ->get();
+            ->inRandomOrder()->limit($limit)->get();
     }
 }
