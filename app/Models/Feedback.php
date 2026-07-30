@@ -15,6 +15,7 @@ class Feedback extends Model
         'title',
         'message',
         'email',
+        'player_uuid',
         'app_version',
         'app_build',
         'platform',
@@ -31,5 +32,10 @@ class Feedback extends Model
     public function scopeBugs($query)
     {
         return $query->where('type', 'bug');
+    }
+
+    public function player()
+    {
+        return $this->belongsTo(Player::class, 'player_uuid', 'uuid');
     }
 }

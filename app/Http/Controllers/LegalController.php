@@ -39,6 +39,7 @@ class LegalController extends Controller
             'title'   => ['required', 'string', 'max:150'],
             'message' => ['required', 'string', 'max:3000'],
             'email'   => ['nullable', 'email', 'max:150'],
+            'player_uuid' => ['nullable', 'string', 'max:191'],
         ], [
             'type.required'    => 'Pilih jenis masukan terlebih dahulu.',
             'title.required'   => 'Judul singkat wajib diisi.',
@@ -57,6 +58,7 @@ class LegalController extends Controller
             'title'       => $request->input('title'),
             'message'     => $request->input('message'),
             'email'       => $request->input('email'),
+            'player_uuid' => $request->input('player_uuid'),
             'app_version' => $request->input('app_version'),
             'app_build'   => $request->input('app_build'),
             'platform'    => $request->input('platform', 'unknown'),
