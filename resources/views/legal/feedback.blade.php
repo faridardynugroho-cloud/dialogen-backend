@@ -39,6 +39,7 @@
                 <input type="hidden" name="app_version" value="{{ request('version') }}">
                 <input type="hidden" name="app_build" value="{{ request('build') }}">
                 <input type="hidden" name="platform" value="{{ request('platform', 'unknown') }}">
+                <input type="hidden" name="player_uuid" value="{{ request('uuid') }}">
 
                 {{-- Type --}}
                 <div>
